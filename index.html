@@ -35,8 +35,10 @@
 
         <button type="submit">Add</button>
       </form>
+      <div id="toast" class="hidden">Day submitted successfully!</div>
 
-      <h2>Today's Intake</h2>
+
+      <h2 class="h2">Today's Intake</h2>
       <table id="summaryTable">
         <thead>
           <tr>
@@ -51,7 +53,7 @@
       </table>
 
       <div id="totals"></div>
-      <button id="submitDay">Submit Day</button>
+      <div class="submitbtn"><button id="submitDay" type="button">Submit Day</button></div>
     </section>
 
     <section id="logSection" style="display:none;">
@@ -60,6 +62,6 @@
     </section>
   </main>
 
-  <script src="script.js"></script>
+  <script src="protein_tracker.js"></script>
 </body>
 </html>

@@ -13,8 +13,6 @@ const foodData = {
   "Peanut Butter (1 tbsp)": { protein: 4, calories: 95 },
   "Tak (200ml)": { protein: 2, calories: 35 },
   "Curd/Dahi (100g)": { protein: 3.5, calories: 60 },
-
-  // New Additions 👇
   "Khajur (2 pcs)": { protein: 0.6, calories: 47 },
   "Kaju (10 pcs)": { protein: 3, calories: 100 },
   "Badam (10 pcs)": { protein: 2.5, calories: 70 },
@@ -22,7 +20,6 @@ const foodData = {
   "Sukka Anjir (2 pcs)": { protein: 1, calories: 60 },
   "Oats (40g, dry)": { protein: 5, calories: 150 }
 };
-
 
 // DOM Elements
 const foodItemSelect = document.getElementById("foodItem");
@@ -35,9 +32,11 @@ const homeSection = document.getElementById("homeSection");
 const logTable = document.getElementById("logTable");
 
 let currentDayLog = [];
-let fullLog = [];
+let fullLog = JSON.parse(localStorage.getItem("fullLog")) || [];
 
-// Populate food dropdown
+displayLog();
+
+// Populate dropdown
 Object.keys(foodData).forEach(item => {
   const option = document.createElement("option");
   option.value = item;
@@ -45,7 +44,7 @@ Object.keys(foodData).forEach(item => {
   foodItemSelect.appendChild(option);
 });
 
-// Navigation handlers
+// Navigation
 document.getElementById("homeLink").addEventListener("click", () => {
   homeSection.style.display = "block";
   logSection.style.display = "none";
@@ -57,7 +56,7 @@ document.getElementById("logLink").addEventListener("click", () => {
   displayLog();
 });
 
-// Add entry to today's log
+// Form Submit Handler
 foodForm.addEventListener("submit", (e) => {
   e.preventDefault();
 
@@ -84,7 +83,7 @@ foodForm.addEventListener("submit", (e) => {
   foodForm.reset();
 });
 
-// Update summary table for current day
+// Update Table
 function updateSummaryTable() {
   summaryTableBody.innerHTML = "";
   let totalProtein = 0;
@@ -115,17 +114,16 @@ function updateSummaryTable() {
   totalsDiv.textContent = `Protein: ${totalProtein.toFixed(1)}g | Calories: ${totalCalories.toFixed(1)} kcal`;
 }
 
-// Handle submit day
+// Submit Day
 submitDayBtn.addEventListener("click", () => {
   if (currentDayLog.length === 0) {
     showToast("Add some food before submitting the day!");
     return;
   }
 
-  fullLog.push({
-    date: new Date().toLocaleDateString(),
-    entries: [...currentDayLog]
-  });
+  const today = new Date().toLocaleDateString();
+  fullLog.push({ date: today, entries: [...currentDayLog] });
+  localStorage.setItem("fullLog", JSON.stringify(fullLog));
 
   currentDayLog = [];
   updateSummaryTable();
@@ -133,9 +131,10 @@ submitDayBtn.addEventListener("click", () => {
   totalsDiv.textContent = "";
 
   showToast("Day submitted successfully!");
+  displayLog();
 });
 
-// Display previous logs
+// Display Logs
 function displayLog() {
   logTable.innerHTML = "";
 
@@ -185,7 +184,7 @@ function displayLog() {
   });
 }
 
-// Show toast notification
+// Toast Notification
 function showToast(message) {
   const toast = document.getElementById("toast");
   toast.textContent = message;
