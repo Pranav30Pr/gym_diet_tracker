@@ -9,6 +9,7 @@ body {
   font-family: 'Segoe UI', sans-serif;
   background: url(assets/img/nutrition-and-health-bsc-banner-v5-1920x1080.jpg);
   position: relative;
+  background-size:100vw;
   z-index: -1;
   background-position: center,center;
   background-repeat: no-repeat;
@@ -197,5 +198,5 @@ tr:hover {
 .submitbtn {
   display: flex;
   justify-content: center;
-  /* margin-top: 20px; */
+  margin-bottom: 40px;
 }
