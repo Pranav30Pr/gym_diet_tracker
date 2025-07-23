@@ -1,4 +1,17 @@
 const foodData = {
+  "Vada Pav": { protein: 4, calories: 290 },
+  "Chicken Biryani (full plate)": { protein: 25, calories: 550 },
+  "Poha (100g)": { protein: 2, calories: 130 },
+  "Idli Sambar (2 idlis)": { protein: 6, calories: 180 },
+  "Wada Sambar (2 wadas)": { protein: 8, calories: 400 },
+  "Upma (1 bowl)": { protein: 4, calories: 180 },
+  "Sabudana Khichdi (1 bowl)": { protein: 2, calories: 300 },
+  "Peanuts (50g)": { protein: 13, calories: 290 },
+  "Misal Pav (2 pavs)": { protein: 10, calories: 400 },
+  "Pav Bhaji (2 pavs)": { protein: 8, calories: 450 },
+  "Lassi (250ml)": { protein: 6, calories: 160 },
+
+  // Already present items (if not yet added)
   "Boiled Egg": { protein: 6, calories: 78 },
   "Milk (250ml)": { protein: 8, calories: 150 },
   "Chapati": { protein: 3, calories: 70 },
@@ -13,8 +26,6 @@ const foodData = {
   "Peanut Butter (1 tbsp)": { protein: 4, calories: 95 },
   "Tak (200ml)": { protein: 2, calories: 35 },
   "Curd/Dahi (100g)": { protein: 3.5, calories: 60 },
-
-  // New Additions 👇
   "Khajur (2 pcs)": { protein: 0.6, calories: 47 },
   "Kaju (10 pcs)": { protein: 3, calories: 100 },
   "Badam (10 pcs)": { protein: 2.5, calories: 70 },
@@ -22,6 +33,7 @@ const foodData = {
   "Sukka Anjir (2 pcs)": { protein: 1, calories: 60 },
   "Oats (40g, dry)": { protein: 5, calories: 150 }
 };
+
 
 
 // DOM Elements
