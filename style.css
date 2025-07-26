@@ -7,14 +7,17 @@
 
 body {
   font-family: 'Segoe UI', sans-serif;
-  background: url(assets/img/nutrition-and-health-bsc-banner-v5-1920x1080.jpg);
+  background-image: url(assets/img/nutrition-and-health-bsc-banner-v5-1920x1080.jpg);
   position: relative;
+  background-size: cover;
   /* background-size:100vw; */
   z-index: -1;
   background-position: center,center;
   background-repeat: no-repeat;
   /* color: white; */
   /* padding-top: 70px; */
+  height: 100vh;
+  background-attachment: fixed;
 }
 
 /* Navbar */
